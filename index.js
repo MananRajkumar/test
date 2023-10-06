@@ -4,7 +4,7 @@ const axios = require('axios');
 
 const clientID = process.env.LINKEDIN_CLIENT_ID;
 const clientSecret = process.env.LINKEDIN_CLIENT_SECRET;
-const redirectURI = "http://localhost:3000/auth/linkedin/callback";
+const redirectURI = process.env.redirectURI;
 
 const app = express();
 

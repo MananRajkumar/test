@@ -4,7 +4,8 @@ const axios = require('axios');
 
 const clientID = process.env.LINKEDIN_CLIENT_ID;
 const clientSecret = process.env.LINKEDIN_CLIENT_SECRET;
-const redirectURI = process.env.redirectURI;
+// const redirectURI = process.env.redirectURI;
+const redirectURI = process.env.LINKEDIN_redirectURI;
 
 const app = express();
 
@@ -62,32 +63,7 @@ app.get('/auth/linkedin/callback', async (req, res) => {
     }
   );
 
-  //   const profileResponse = await axios.get(
-  //     'https://api.linkedin.com/v2/userinfo',
-  //     {
-  //       headers: {
-  //           Authorization: `Bearer ${accessToken}`,
-  //       },
-  //   }
-  // );
-
-  // const getResponse = async () => {
-  //   try {
-  //     const chat = await axios.get(
-  //       'https://api.linkedin.com/v2/me',
-  //       {
-  //         headers: {
-  //           Authorization: `Bearer ${accessToken}`,
-  //         },
-  //       }
-  //     );
-  //     return chat;
-      
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
-  // const profileResponse = await getResponse();
+  
   const userData = profileResponse.data;
   res.json(userData);
   // res.json(profileResponse);
